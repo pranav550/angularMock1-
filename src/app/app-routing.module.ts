@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'image', loadChildren: () => import(`./featureModule/image-upload/image-upload.module`).then(m => m.ImageUploadModule) },
   { path: 'pdf', loadChildren: () => import(`./featureModule/pdf-upload/pdf-upload.module`).then(m => m.PdfUploadModule) },
   { path: 'pagination', loadChildren: () => import(`./featureModule/pagination/pagination.module`).then(m => m.PaginationModule) },
+  { path: 'spinner', loadChildren: () => import(`./featureModule/spinner/spinner.module`).then(m => m.SpinnerModule) },
   {path: '**', component: PageNotFoundComponent }
 
 ];
