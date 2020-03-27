@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PdfComponent } from './pdf/pdf.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 const routes: Routes=[
   {path:'', children:[
@@ -17,7 +18,7 @@ const routes: Routes=[
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-   
+    ToastrModule.forRoot()
   ]
 })
 export class PdfUploadModule { }

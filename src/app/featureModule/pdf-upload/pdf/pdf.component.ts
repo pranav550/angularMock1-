@@ -1,4 +1,6 @@
+import { NotificationService } from './../../../shared/services/notification.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pdf',
@@ -9,7 +11,7 @@ export class PdfComponent implements OnInit {
   isValidFormSubmitted: boolean = true
   urls:any = []
   message: string
-  constructor() { }
+  constructor(private toastr: ToastrService, private notifyService : NotificationService) { }
 
   user = {
     upload: '',
@@ -32,20 +34,36 @@ export class PdfComponent implements OnInit {
               console.log(event)
               if (event.loaded < 5000000) {
                 this.urls.push(event.target.result)
-                this.message = "File Uploaded Successfully"
+                
+               // this.message = "File Uploaded Successfully"
               }
               else {
-                this.message = "File Size Excceded"
+                // this.message = "File Size Excceded"
+                this.failFileSize()
+               
               }
 
             }
           }
           else {
-            this.message = "Files Types is not match"
+            // this.message = "Files Types is not match"
+            this.failFileType()
           }
         }
       }
     }
+  }
+
+  showSuccess() {
+    this.notifyService.showSuccess("File Uploaded Successfully !!", "Notification", )
+  }
+
+  failFileType() {
+    this.notifyService.failFileType("File Type Not Match !!", "Notification", )
+  }
+
+  failFileSize() {
+    this.notifyService.failFileSize("File Size Exceeded !!", "Notification", )
   }
 
   public onSubmit(contactForm) {
@@ -55,6 +73,7 @@ export class PdfComponent implements OnInit {
       //	return;	
     }
     else {
+      this.showSuccess()
      this.isValidFormSubmitted = true;
     //  console.log(this.isValidFormSubmitted)
     }
