@@ -1,0 +1,23 @@
+<p>error-handling works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Gender</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Picture</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of records ">
+            <th>{{record.gender}}</th>
+            <th>{{record.name.first}}</th>
+            <th>{{record.email}}</th>
+            <th>
+                <img src="{{record.picture.medium}}" > 
+            </th>
+           
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+<p>json-api-child works!</p>
+<div class="container" *ngIf="users$?.results !=null">
+    <ul *ngFor="let user of users$.results">
+        <li>{{user.email}}</li>
+    </ul>
+</div>
