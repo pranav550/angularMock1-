@@ -1,5 +1,5 @@
-import { DashboardComponentComponent } from './shared/components/dashboard-component/dashboard-component.component';
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { DashboardComponentComponent } from './core/dashboard-component/dashboard-component.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

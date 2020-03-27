@@ -1,3 +1,6 @@
+import { DashboardComponentComponent } from './core/dashboard-component/dashboard-component.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { HeaderComponent } from './core/header/header.component';
 import { PaginationModule } from './featureModule/pagination/pagination.module';
 import { ErrorHandlingModule } from './featureModule/error-handling/error-handling.module';
 import { PdfUploadModule } from './featureModule/pdf-upload/pdf-upload.module';
@@ -11,10 +14,8 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
-import { DashboardComponentComponent } from './shared/components/dashboard-component/dashboard-component.component';
+
 
 @NgModule({
   declarations: [

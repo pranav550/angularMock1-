@@ -15,7 +15,7 @@ export class AsyncCallComponent implements OnInit {
     this.getUser()
   }
 // function to call get User
-  public getUser():any{
+  public getUser():void{
     this.users$ = this.mock.getData()
     //console.log(this.users$)
   }

@@ -18,7 +18,7 @@ export class PaginationComponent implements OnInit {
   }
 
   // get all data records
-  public getRecords():any{
+  public getRecords():void{
     this.mockService.getData().subscribe(data=>{
       this.records=data.results
       this.totalRecords=data.results.length

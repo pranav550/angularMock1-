@@ -16,7 +16,7 @@ export class ErrorHandlingComponent implements OnInit {
   }
 
 // call get data function
-  public getRecords():any{
+  public getRecords():void{
     this.service.getData().subscribe((data)=>{
       this.records = data.results
     }, (error)=>{
