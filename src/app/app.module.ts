@@ -15,6 +15,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatchModule } from './featureModule/match/match.module';
+
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    DashboardComponentComponent
+    DashboardComponentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ErrorHandlingModule,
     PaginationModule,
     HttpClientModule,
+    MatchModule
     
   ],
   providers: [],
