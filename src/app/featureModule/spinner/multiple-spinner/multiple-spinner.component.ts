@@ -6,8 +6,6 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./multiple-spinner.component.css']
 })
 export class MultipleSpinnerComponent implements OnInit {
-
- 
   constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
