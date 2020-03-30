@@ -1,7 +1,33 @@
-<p>json-api-child works!</p>
+<h2>Async Data Listing</h2>
+
 <div class="container" *ngIf="users$?.results !=null">
-    <ul *ngFor="let user of users$.results">
-        <li>{{user.email}}</li>
-    </ul>
+<mat-grid-list cols="4" rowHeight="7:1">
+    <mat-grid-tile>
+    <u>Name</u>
+    </mat-grid-tile>
+    <mat-grid-tile>
+    <u>Gender</u>
+    </mat-grid-tile>
+    <mat-grid-tile>
+    <u>Email</u>
+    </mat-grid-tile>
+    <mat-grid-tile>
+    <u>Image</u>
+    </mat-grid-tile>
+    <ng-container *ngFor="let user of users$?.results">
+    <mat-grid-tile>
+    {{ user.name.first}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+    {{ user.gender}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+    {{ user.email}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+    <img src="{{user.picture.medium}}">
+    </mat-grid-tile>
+    </ng-container>
+    </mat-grid-list>
 </div>
 <ngx-spinner   [fullScreen]="true" type="ball-spin-clockwise" size="medium"></ngx-spinner>

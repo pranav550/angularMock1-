@@ -2,6 +2,7 @@ import { MockService } from './../../../shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-async-call',
   templateUrl: './async-call.component.html',
@@ -19,7 +20,6 @@ export class AsyncCallComponent implements OnInit {
   public getUser():void{
     this.spinner.show();
     this.users$ = this.mock.getData()
-   // this.spinner.hide();
-    //console.log(this.users$)
+  
   }
 }

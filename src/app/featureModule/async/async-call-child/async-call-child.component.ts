@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-async-call-child',
   templateUrl: './async-call-child.component.html',
