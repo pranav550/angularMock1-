@@ -8,6 +8,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
+
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule } from 'saturn-datepicker'
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter'
+
 const routes: Routes=[
   {path:'', children:[
     {path:'bootstap-datepicker', component: BootstrapDatepickerComponent},
@@ -26,7 +30,13 @@ const routes: Routes=[
     MatDatepickerModule, MatInputModule,
     
     MatFormFieldModule,
-    MatNativeDateModule
-  ]
+    MatNativeDateModule,
+    SatDatepickerModule,
+    
+  ],
+  providers: [
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ],
 })
 export class DatepickerModule { }

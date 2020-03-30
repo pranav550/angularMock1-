@@ -1,5 +1,17 @@
+<h2>Material Ranger</h2>
 <mat-form-field>
-  <input matInput [min]="minDate" [matDatepicker] = "picker" placeholder = "Choose a date">
-  <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
+  <input matInput
+      placeholder="Choose a date"
+      [satDatepicker]="picker"
+     >
+  <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+  <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
 </mat-form-field>
+
+
+<h2>Material Datepicker</h2>
+<mat-form-field>
+  <input matInput [min]="minDate" [matDatepicker] = "picker1" placeholder = "Choose a date">
+  <mat-datepicker-toggle matSuffix [for] = "picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field> 
