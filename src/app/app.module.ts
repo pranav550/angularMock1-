@@ -19,12 +19,14 @@ import { MatchModule } from './featureModule/match/match.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PageNotFoundComponent,
     DashboardComponentComponent,
+    
     
   ],
   imports: [

@@ -1,6 +1,9 @@
-import { MockService } from './../../../shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { Data } from './../../../shared/models/data';
+import { MockService } from './../../../shared/services/mock.service';
+
+
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
@@ -8,22 +11,22 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class PaginationComponent implements OnInit {
 
-  records:any=[];
-  totalRecords:number
-  page:number=1
-  constructor(private mockService:MockService, private spinner: NgxSpinnerService) { }
+  records: Data[];
+  totalRecords: number;
+  page: number = 1;
+  constructor(private mockService: MockService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.getRecords()
+    this.getRecords();
   }
 
   // get all data records
-  public getRecords():void{
+  public getRecords(): void {
     this.spinner.show();
-    this.mockService.getData().subscribe(data=>{
+    this.mockService.getData().subscribe(data => {
       this.spinner.hide();
-      this.records=data.results
-      this.totalRecords=data.results.length
+      this.records = data.results;
+      this.totalRecords = data.results.length;
     })
   }
 }

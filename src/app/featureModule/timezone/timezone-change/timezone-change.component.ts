@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
+import { Time } from './../../../shared/models/time';
+
+
 @Component({
   selector: 'app-timezone-change',
   templateUrl: './timezone-change.component.html',
   styleUrls: ['./timezone-change.component.css']
 })
 export class TimezoneChangeComponent implements OnInit {
-  public selectedMoment:any ;
-  timez:any=[];
+  public selectedMoment:Date ;
+  timez:Time[];
   
   constructor( ) { 
    
   }
 
   ngOnInit(): void {
-  this.getTimezone()
+  this.getTimezone();
   }
 
   //function for get timezone
@@ -31,7 +34,7 @@ export class TimezoneChangeComponent implements OnInit {
   // function for change date
   selectedDate(val){
     this.selectedMoment = val;
-    this.getTimezone()
+    this.getTimezone();
   }
 
 }

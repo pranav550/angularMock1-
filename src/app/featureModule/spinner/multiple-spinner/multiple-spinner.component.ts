@@ -6,37 +6,48 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./multiple-spinner.component.css']
 })
 export class MultipleSpinnerComponent implements OnInit {
+  isSmall: boolean = false;
+  isMedium: boolean = false;
+  isLarge: boolean = false;
+
+
   constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  showSmall(){
+  showSmall(flag) {
+    this.isSmall = flag;
     this.spinner.show("small");
   }
 
-  hideSmall(){
+  hideSmall(flag) {
+    this.isSmall = flag;
     this.spinner.hide("small");
   }
 
-  showMedium(){
+  showMedium(flag) {
+    this.isMedium = flag;
     this.spinner.show("medium");
   }
 
-  hideMedium(){
+  hideMedium(flag) {
+    this.isMedium = flag;
     this.spinner.hide("medium");
   }
 
-  showLarge(){
+  showLarge(flag) {
+    this.isLarge = flag;
     this.spinner.show("large");
   }
 
-  hideLarge(){
+  hideLarge(flag) {
+    this.isLarge = flag;
     this.spinner.hide("large");
   }
 
-  
-  
+
+
 
 }

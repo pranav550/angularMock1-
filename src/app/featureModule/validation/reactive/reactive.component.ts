@@ -1,15 +1,17 @@
+import { Country } from './../../../shared/models/country';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Constant } from '../../../shared/constant';
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive.component.html',
   styleUrls: ['./reactive.component.css']
 })
 export class ReactiveComponent implements OnInit {
-
+  countries: Country[] = Constant.countryList;
   isSubmit: boolean = false
   contactForm = new FormGroup({
-    name: new FormControl('', [Validators.required ]),
+    name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.email, Validators.required]),
     mobile: new FormControl('', [Validators.required, Validators.pattern('(?=.*[0-9]).{10}')]),
@@ -18,11 +20,7 @@ export class ReactiveComponent implements OnInit {
     isMarried: new FormControl('', [Validators.required]),
   })
 
-  countries = [
-    { id: 1, name: "india" },
-    { id: 2, name: "UK" },
-    { id: 3, name: "USA" }
-  ]
+
 
   ngOnInit() {
 
@@ -58,10 +56,10 @@ export class ReactiveComponent implements OnInit {
   // check the form is or not while submitting
   onSubmit() {
     if (this.contactForm.invalid) {
-      this.isSubmit = true
+      this.isSubmit = true;
     }
     else {
-      this.isSubmit = false
+      this.isSubmit = false;
     }
     console.log(this.contactForm.value);
   }

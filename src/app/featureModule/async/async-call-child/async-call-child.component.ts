@@ -7,24 +7,20 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./async-call-child.component.css']
 })
 export class AsyncCallChildComponent implements OnInit, OnChanges {
-  @Input() users$:any
+  @Input() users$: any;
   constructor(private spinner: NgxSpinnerService) { }
-  
+
 
   ngOnInit(): void {
-    
+
   }
 
-  ngAfterViewInit(){
-    
-  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.users$.currentValue) {
+      this.spinner.hide();
+    }
 
-  ngOnChanges(changes: SimpleChanges){
-   if(changes.users$.currentValue){
-    this.spinner.hide();
-   }
 
-   
   }
 
 }

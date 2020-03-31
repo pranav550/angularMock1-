@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Constant} from "../constant";
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import {Constant} from "../constant";
 
 @Injectable({
   providedIn: 'root'

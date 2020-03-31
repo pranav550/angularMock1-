@@ -1,6 +1,7 @@
-import { User } from './../../../shared/models/user';
 import { Component, OnInit } from '@angular/core';
-
+import { Country } from './../../../shared/models/country';
+import { User } from './../../../shared/models/user';
+import { Constant } from "../../../shared/constant";
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateComponent implements OnInit {
   isValidFormSubmitted: boolean = true
-  user:User = {
+  countryList: Country[] = Constant.countryList;
+  user: User = {
     name: '',
     email: '',
     gender: '',
@@ -17,12 +19,7 @@ export class TemplateComponent implements OnInit {
     description: '',
     accept: ''
   };
-  countryList: any = [
-    { id: 1, name: "India" },
-    { id: 2, name: "USA" },
-    { id: 3, name: "Japan" },
 
-  ];
   constructor() { }
 
   // on Check the form invalid while on submit

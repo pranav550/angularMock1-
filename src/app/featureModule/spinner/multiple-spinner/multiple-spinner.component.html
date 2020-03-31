@@ -1,9 +1,10 @@
-<p>multiple-spinner works!</p>
+
 <div class="row">
     <div class="col-md-4">
-        <button class="btn btn-primary" (click)="showSmall()" name="small">Show</button>
-        <button class="btn btn-primary" (click)="hideSmall()" name="small">Hide</button>
-        <div class="card" style="width: 30rem;">
+        <h2>Small Spinner</h2>
+        <button class="btn btn-primary" (click)="showSmall(true)" name="small">Show</button>
+        <button class="btn btn-primary" (click)="hideSmall(false)" name="small">Hide</button>
+        <div class="card" style="width: 30rem;" *appIsSpinner="isSmall">
             <ngx-spinner name="small" [fullScreen]="false" type="ball-spin-clockwise" size="small"></ngx-spinner>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -15,9 +16,10 @@
     </div>
 
     <div class="col-md-4">
-        <button class="btn btn-primary" (click)="showMedium()" name="medium">Show</button>
-        <button class="btn btn-primary" (click)="hideMedium()" name="medium">Hide</button>
-        <div class="card" style="width: 30rem;">
+        <h2>Medium Spinner</h2>
+        <button class="btn btn-primary" (click)="showMedium(true)" name="medium">Show</button>
+        <button class="btn btn-primary" (click)="hideMedium(false)" name="medium">Hide</button>
+        <div class="card" style="width: 30rem;" *appIsSpinner="isMedium">
             <ngx-spinner name="medium"  [fullScreen]="false" type="ball-spin-clockwise" size="medium"></ngx-spinner>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -30,9 +32,10 @@
 
 
     <div class="col-md-4">
-        <button class="btn btn-primary" (click)="showLarge()" name="large">Show</button>
-        <button class="btn btn-primary" (click)="hideLarge()" name="large">Hide</button>
-        <div class="card" style="width: 30rem;">
+        <h2>Large Spinner</h2>
+        <button class="btn btn-primary" (click)="showLarge(true)" name="large">Show</button>
+        <button class="btn btn-primary" (click)="hideLarge(false)" name="large">Hide</button>
+        <div class="card" style="width: 30rem;" *appIsSpinner="isLarge">
             <ngx-spinner name="large"  [fullScreen]="false" type="ball-spin-clockwise" size="large"></ngx-spinner>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>

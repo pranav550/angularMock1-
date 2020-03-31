@@ -4,6 +4,7 @@
 <div class="input-wrapper">
         <label>Date Time:</label>
         <input [(ngModel)]="selectedMoment"  (ngModelChange)="selectedDate(selectedMoment)"
+        placeholder="Select Date"
                [owlDateTimeTrigger]="dtPicker1" [owlDateTime]="dtPicker1">
         <owl-date-time #dtPicker1></owl-date-time>
     </div>

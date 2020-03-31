@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./material-datepicker.component.css']
 })
 export class MaterialDatepickerComponent implements OnInit {
-  minDate=new Date()
- // date=new Date()
+  minDate=new Date();
+ 
   constructor() { }
 
   ngOnInit(): void {
