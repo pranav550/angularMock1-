@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+ 
+  .example-full-width {
+    width: 100%;
+  }
+  

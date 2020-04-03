@@ -1,3 +1,4 @@
+import { Mat1TableModule } from './featureModule/mat-table/mat-table.module';
 import { DashboardComponentComponent } from './core/dashboard-component/dashboard-component.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -42,7 +43,8 @@ import { MatchModule } from './featureModule/match/match.module';
     ErrorHandlingModule,
     PaginationModule,
     HttpClientModule,
-    MatchModule
+    MatchModule,
+    Mat1TableModule
     
   ],
   providers: [],
