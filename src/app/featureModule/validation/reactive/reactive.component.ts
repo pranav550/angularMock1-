@@ -1,7 +1,10 @@
+import { MockService } from './../../../shared/services/mock.service';
 import { Country } from './../../../shared/models/country';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Constant } from '../../../shared/constant';
+
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive.component.html',
@@ -20,10 +23,29 @@ export class ReactiveComponent implements OnInit {
     isMarried: new FormControl('', [Validators.required]),
   })
 
+  constructor(
+    private translate:TranslateService,
+    private service:MockService
+  ){
 
+  }
 
-  ngOnInit() {
+ngOnInit() {
+    this.changeLanguage()
+  }
 
+   //function for language change
+   changeLanguage(){
+    this.service.getLang.subscribe(resp=>{
+    this.translate.addLangs(['en', 'hn']);
+      if (localStorage.getItem('locale')) {
+        const browserLang = localStorage.getItem('locale');
+        this.translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+      } else {
+        localStorage.setItem('locale', 'en');
+        this.translate.setDefaultLang('en');
+      }
+    })
   }
 
   get name() {

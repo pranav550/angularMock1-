@@ -1,70 +1,82 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">{{'Mock Example'|translate}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ">
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Validation
+          {{'Validation'| translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="validation/template">Template</a>
+          <a class="dropdown-item" routerLink="validation/template">{{'Template'|translate}}</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="validation/reactive">Reactive</a>
+          <a class="dropdown-item" routerLink="validation/reactive">{{'Reactive'|translate}}</a>
          
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Datepicker
+          {{'Datepicker'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="date-picker/bootstap-datepicker">Datepicker Bootstrap</a>
+          <a class="dropdown-item" routerLink="date-picker/bootstap-datepicker">{{'Datepicker Bootstrap'| translate}}</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="date-picker/material-datepicker">Datepicker Material</a>
+          <a class="dropdown-item" routerLink="date-picker/material-datepicker">{{'Datepicker Material'| translate}}</a>
          
         </div>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="error/error-handling">Error Handling</a>
+        <a class="nav-link" routerLink="error/error-handling">{{'Error Handling'| translate }}</a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="pagination/paginationCall">Pagination</a>
+        <a class="nav-link" routerLink="pagination/paginationCall">{{'Pagination'| translate }}</a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="image/image-upload">Image Upload</a>
+        <a class="nav-link" routerLink="image/image-upload">{{'Image Upload'| translate }}</a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="pdf/pdf-upload">Pdf Upload</a>
+        <a class="nav-link" routerLink="pdf/pdf-upload">{{'Pdf Upload'|translate}}</a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="async/async-api-call">AsyncApi</a>
+        <a class="nav-link" routerLink="async/async-api-call">{{'Asynchronous Call'| translate }}</a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" routerLink="timezone/timezone-change">Timezone</a>
+        <a class="nav-link" routerLink="timezone/timezone-change">{{'Timezone'| translate}}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="spinner/multiple-spinner">Spinner</a>
+        <a class="nav-link" routerLink="spinner/multiple-spinner">{{'Spinner' | translate}}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="match/confirm-password">Password Match</a>
+        <a class="nav-link" routerLink="match/confirm-password">{{'Password Match' | translate}}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="mat/datatable">Data Table</a>
+        <a class="nav-link" routerLink="mat/datatable">{{'DataTable' | translate}}</a>
       </li>
+
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink="translate/translate-data"> {{ 'Translate' | translate }} </a>
+      </li> -->
+     
       
     </ul>
+      <div class="ml-auto ">
+     
+    <select #langSelect (change)="changeLang(langSelect.value)" class="ml-auto">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
+        {{ lang }}</option>
+    </select>
+    </div>
   
   </div>
 </nav>

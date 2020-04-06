@@ -1,4 +1,6 @@
+import { MockService } from './../../shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public service: MockService,
+    public translate: TranslateService) {
+    translate.addLangs(['en', 'hn']);
+    if (localStorage.getItem('locale')) {
+      const browserLang = localStorage.getItem('locale');
+      translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+    } else {
+      localStorage.setItem('locale', 'en');
+      translate.setDefaultLang('en');
+    }
+  }
+  changeLang(language: string) {
+    localStorage.setItem('locale', language);
+    this.translate.use(language);
+    this.service.lang.next(language);
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
 }

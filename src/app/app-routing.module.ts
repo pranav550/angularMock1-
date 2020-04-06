@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'spinner', loadChildren: () => import(`./featureModule/spinner/spinner.module`).then(m => m.SpinnerModule) },
   { path: 'match', loadChildren: () => import(`./featureModule/match/match.module`).then(m => m.MatchModule) },
   { path: 'mat', loadChildren: () => import(`./featureModule/mat-table/mat-table.module`).then(m => m.Mat1TableModule) },
+
   {path: '**', component: PageNotFoundComponent }
 
 ];

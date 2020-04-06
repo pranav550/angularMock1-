@@ -1,7 +1,11 @@
+import { MockService } from './../../../shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Country } from './../../../shared/models/country';
 import { User } from './../../../shared/models/user';
 import { Constant } from "../../../shared/constant";
+
+
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -20,7 +24,19 @@ export class TemplateComponent implements OnInit {
     accept: ''
   };
 
-  constructor() { }
+  constructor(
+    private translate:TranslateService,
+    private service:MockService
+  ) {
+    translate.addLangs(['en', 'hn']);
+    if (localStorage.getItem('locale')) {
+      const browserLang = localStorage.getItem('locale');
+      translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+    } else {
+      localStorage.setItem('locale', 'en');
+      translate.setDefaultLang('en');
+    }
+   }
 
   // on Check the form invalid while on submit
   public onSubmit(contactForm) {
@@ -35,6 +51,21 @@ export class TemplateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.changeLanguage()
+  }
+
+   //function for language change
+   changeLanguage(){
+    this.service.getLang.subscribe(resp=>{
+    this.translate.addLangs(['en', 'hn']);
+      if (localStorage.getItem('locale')) {
+        const browserLang = localStorage.getItem('locale');
+        this.translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+      } else {
+        localStorage.setItem('locale', 'en');
+        this.translate.setDefaultLang('en');
+      }
+    })
   }
 
 }

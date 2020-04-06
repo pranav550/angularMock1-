@@ -5,6 +5,13 @@ import { PaginationChildComponent } from './pagination-child/pagination-child.co
 import { RouterModule, Routes } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { NgxSpinnerModule } from "ngx-spinner";
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 const routes: Routes=[
   {path:'', children:[
     {path:'paginationCall', component: PaginationComponent},
@@ -18,7 +25,15 @@ const routes: Routes=[
     CommonModule,
     RouterModule.forChild(routes),
     NgxPaginationModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
