@@ -28,5 +28,15 @@
     "Reactive Form":"प्रतिक्रियात्मक रूप",
     "Married":"विवाहित",
     "Sign Up":"साइन अप करें",
-    "Submit":"प्रस्तुत"
+    "Submit":"प्रस्तुत",
+    "Bootstrap Datepicker":"बूटस्ट्रैप तारीखचुनना",
+    "Bootstrap DateRange":"बूटस्ट्रैप तारीखरेंज",
+    "Material DateRange":"सामग्री तारीखरेंज",
+    "Material Datepicker":"सामग्री तारीखचुनना",
+    "Timezone Change":"समयक्षेत्र परिवर्तन",
+    "Select Timezone":"समयक्षेत्र चुनें",
+    "Small Spinner":"छोटा स्पिनर",
+    "Medium Spinner":"मध्यम स्पिनर",
+    "Large Spinner":"बड़ा स्पिनर"
+
 }

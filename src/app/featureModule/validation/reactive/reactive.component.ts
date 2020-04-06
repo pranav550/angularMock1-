@@ -1,10 +1,9 @@
-import { MockService } from './../../../shared/services/mock.service';
-import { Country } from './../../../shared/models/country';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Constant } from '../../../shared/constant';
-
+import { MockService } from './../../../shared/services/mock.service';
+import { Country } from './../../../shared/models/country';
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive.component.html',

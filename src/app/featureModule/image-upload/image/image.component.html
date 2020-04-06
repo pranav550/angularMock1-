@@ -1,10 +1,10 @@
 <div class="container">
-    <h2>Image Upload</h2>
+    <h2>{{'Image Upload'|translate}}</h2>
     
-    <div class="alert">{{message}}</div>
+    <!-- <div class="alert">{{message}}</div> -->
     <form (ngSubmit)=" onSubmit(myForm)" #myForm="ngForm">
         <div class="form-group">
-            <label for="">Image Upload</label>
+            <label for="">{{'Image Upload'|translate}}</label>
             <input type="file" (change)="onSelectFile($event)" name="upload"  class="form-control"  [(ngModel)]="user.upload"
             #upload="ngModel" multiple required>
             <div *ngIf="upload.invalid  &&  (upload.dirty || upload.touched || !isValidFormSubmitted) " class="error">
@@ -13,7 +13,7 @@
             </div>
            
         </div>
-        <button type="submit"  class="btn btn-primary">Submit</button>
+        <button type="submit"  class="btn btn-primary">{{'Submit'|translate}}</button>
     
     </form>
     <img [src]="url" *ngFor="let url of urls" width="200px" height="200px">

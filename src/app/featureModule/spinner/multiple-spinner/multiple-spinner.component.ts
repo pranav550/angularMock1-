@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { TranslateService } from '@ngx-translate/core';
+import { MockService } from './../../../shared/services/mock.service';
 @Component({
   selector: 'app-multiple-spinner',
   templateUrl: './multiple-spinner.component.html',
@@ -11,11 +13,31 @@ export class MultipleSpinnerComponent implements OnInit {
   isLarge: boolean = false;
 
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    private service: MockService,
+    private translate:TranslateService
+    ) { }
 
   ngOnInit(): void {
-
+      this.changeLanguage()
   }
+
+   //function for language change
+   changeLanguage(){
+    this.service.getLang.subscribe(resp=>{
+    this.translate.addLangs(['en', 'hn']);
+      if (localStorage.getItem('locale')) {
+        const browserLang = localStorage.getItem('locale');
+        this.translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+      } else {
+        localStorage.setItem('locale', 'en');
+        this.translate.setDefaultLang('en');
+      }
+    })
+  }
+
+
 
   showSmall(flag) {
     this.isSmall = flag;

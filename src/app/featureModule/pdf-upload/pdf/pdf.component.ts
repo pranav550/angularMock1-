@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 import { File } from './../../../shared/models/file';
 import { NotificationService } from './../../../shared/services/notification.service';
 import {Constant} from "./../../../shared/constant";
+import { MockService } from './../../../shared/services/mock.service';
 
 @Component({
   selector: 'app-pdf',
@@ -13,13 +15,34 @@ export class PdfComponent implements OnInit {
   isValidFormSubmitted: boolean = true;
   urls:File[]=[];
   message: string;
-  constructor(private toastr: ToastrService, private notifyService : NotificationService) { }
+  constructor(
+    private toastr: ToastrService,
+    private notifyService : NotificationService,
+    private service: MockService,
+    private translate:TranslateService
+    
+    ) { }
 
   user = {
     upload: '',
   };
 
   ngOnInit(): void {
+    this.changeLanguage()
+  }
+
+   //function for language change
+   changeLanguage(){
+    this.service.getLang.subscribe(resp=>{
+    this.translate.addLangs(['en', 'hn']);
+      if (localStorage.getItem('locale')) {
+        const browserLang = localStorage.getItem('locale');
+        this.translate.use(browserLang.match(/en|hn/) ? browserLang : 'en');
+      } else {
+        localStorage.setItem('locale', 'en');
+        this.translate.setDefaultLang('en');
+      }
+    })
   }
 
   // on Change FileUpload Function & validating the file type and file size

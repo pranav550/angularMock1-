@@ -28,5 +28,15 @@
     "Reactive Form":"Reactive Form",
     "Married":"Married",
     "Sign Up":"Sign Up",
-    "Submit":"Submit"
+    "Submit":"Submit",
+    "Bootstrap Datepicker":"Bootstrap Datepicker",
+    "Bootstrap DateRange":"Bootstrap DateRange",
+    "Material DateRange":"Material DateRange",
+    "Material Datepicker":"Material Datepicker",
+    "Timezone Change":"Timezone Change",
+    "Select Timezone":"Select Timezone",
+    "Small Spinner":"Small Spinners",
+    "Medium Spinner":"Medium Spinner",
+    "Large Spinner":"Large Spinner"
+    
 }

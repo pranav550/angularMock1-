@@ -4,6 +4,13 @@ import { MultipleSpinnerComponent } from './multiple-spinner/multiple-spinner.co
 import { RouterModule, Routes } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { IsSpinnerDirective } from 'src/app/shared/directive/is-spinner.directive';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 const routes: Routes=[
   {path:'', children:[
     {path:'multiple-spinner', component: MultipleSpinnerComponent},
@@ -16,7 +23,15 @@ const routes: Routes=[
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
