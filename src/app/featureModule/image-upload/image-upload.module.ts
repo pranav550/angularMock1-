@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -23,6 +23,7 @@ const routes: Routes=[
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
+    FontAwesomeModule,
     HttpClientModule,
     TranslateModule.forRoot({
         loader: {

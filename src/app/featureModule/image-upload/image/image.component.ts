@@ -43,6 +43,10 @@ export class ImageComponent implements OnInit {
         }
       })
     }
+    // function
+    clickChanges(event){
+      this.urls.splice(event.target.src,1) 
+    }
 
   // on Change FileUpload Function & validating the file type and file size
   public onSelectFile(event): any {
@@ -58,6 +62,7 @@ export class ImageComponent implements OnInit {
               //  console.log(event)
               if (event.loaded < 3000000) {
                 this.urls.push(event.target.result);
+                console.log(this.urls)
               }
               else {
                 this.failFileSize();

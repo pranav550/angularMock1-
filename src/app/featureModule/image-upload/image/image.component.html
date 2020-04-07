@@ -16,5 +16,11 @@
         <button type="submit"  class="btn btn-primary">{{'Submit'|translate}}</button>
     
     </form>
-    <img [src]="url" *ngFor="let url of urls" width="200px" height="200px">
+    <div class="position-relative"  *ngFor="let url of urls" >
+    <img [src]="url" width="200px" height="200px">
+    <span class="position-absolute cross-icon" (click)="clickChanges($event)"><img src="../../../../assets/delete.png" width="30px" height="30px"></span>
+    
+</div>
+    <!-- <span><i class="glyphicon glyphicon-remove"></i></span> -->
     </div>
+    <!-- (click)="clickChanges($event)"  -->
